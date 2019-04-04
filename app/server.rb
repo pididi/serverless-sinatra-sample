@@ -2,10 +2,11 @@ require 'sinatra'
 require 'aws-record'
 
 before do
-  unless request.body.read.empty? || request.body.size > 0
-    request.body.rewind
+  request_body = request.body.read
+
+  unless request_body.empty?
     @params = Sinatra::IndifferentHash.new
-    @params.merge!(JSON.parse(request.body.read))
+    @params.merge!(JSON.parse(request_body))
   end
 end
 

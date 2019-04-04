@@ -1,2 +1,6 @@
+.bundle/
+.idea/
 .ruby-gemset
 .ruby-version
+packaged-template.yaml
+vendor/
